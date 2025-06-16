@@ -1,18 +1,36 @@
-import React from "react"
-import { Card, CardBody } from "reactstrap";
+import React, { useState } from "react";
+import { Navbar, NavbarBrand, Nav, NavItem, Collapse, NavbarToggler } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
-function Headers({ name }) 
-{
+function Headers() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
+
     return (
-        <div>
-            <Card className="my-2" style={{ backgroundColor: "#C70039" }}>
-                <CardBody>
-                    <h1 className="text-center my-3">Welcome To EduTrack Pro</h1>
-                </CardBody>
-            </Card>
-        </div>
+        <Navbar color="primary" dark expand="md" style={{ padding: "10px 20px", boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }}>
+            <NavbarBrand href="/" style={{ fontWeight: 700, fontSize: "1.8rem" }}>EduTrack Pro</NavbarBrand>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+                <Nav className="ms-auto" navbar>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/" end style={{ fontSize: "1.1rem", marginRight: 15 }}>Home</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/add-course" style={{ fontSize: "1.1rem", marginRight: 15 }}>Add Course</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/view-courses" style={{ fontSize: "1.1rem", marginRight: 15 }}>View Courses</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/about-me" style={{ fontSize: "1.1rem", marginRight: 15 }}>About</NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/reach-me" style={{ fontSize: "1.1rem" }}>Reach Me</NavLink>
+                    </NavItem>
+                </Nav>
+            </Collapse>
+        </Navbar>
     );
-    
 }
 
 export default Headers;

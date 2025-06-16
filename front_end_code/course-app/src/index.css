@@ -1,8 +1,14 @@
+html {
+  /* Removed height: 100% to allow page to scroll */
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   background: #f4f8fb;
   color: #222;
+  min-height: 100vh; /* Keep min-height to ensure it takes full viewport initially */
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,29 +39,6 @@ h1, h2, h3, h4, h5, h6 {
   background: #125ea2;
   border-color: #125ea2;
   color: #fff;
-}
-
-.sidebar {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  padding: 16px 0;
-}
-
-.menu-link {
-  color: #1976d2;
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
-  display: block;
-  text-decoration: none;
-  min-height: 48px;
-  font-size: 1.1rem;
-}
-.menu-link:hover, .menu-link.active {
-  background: #e3f0fc;
-  color: #125ea2;
 }
 
 input, textarea {
@@ -93,38 +76,8 @@ label {
     border-radius: 10px !important;
     box-shadow: 0 1px 6px rgba(0,0,0,0.08);
   }
-  .right-sidebar {
-    width: 80vw;
-    min-width: 0;
-    max-width: 90vw;
-    top: 70px;
-    height: calc(100vh - 70px);
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  .menu-fab {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
-    bottom: 16px;
-    right: 16px;
-  }
 }
 
-html, body, #root {
-  height: 100%;
-}
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-@media (max-width: 600px) {
-  .right-sidebar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .right-sidebar::-webkit-scrollbar {
-    display: none;
-  }
+#root {
+  /* Removed height: 100% to allow #root to expand as content grows */
 }
