@@ -1,4 +1,0 @@
-[build]
-  base = "course-frontend"
-  publish = "build"
-  command = "npm run build"
